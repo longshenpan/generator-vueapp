@@ -1,0 +1,16 @@
+{
+	"name": "<%= projectName %>",
+	"version": "<%= projectVersion %>",
+	"description": "",
+	"main": "index.js",
+	"files": [
+	  "generators/simpleapp",
+	  "generators/app",
+	  "generators/page"
+	],
+	"scripts": {
+	  "test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "<%= projectAuthor %>",
+	"license": "ISC",
+}

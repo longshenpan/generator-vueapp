@@ -1,0 +1,21 @@
+{
+  "name": "generator-vueapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./generators/app/index.js",
+  "files": [
+    "generators/simpleapp",
+    "generators/app",
+    "generators/page"
+  ],
+  "keywords": [],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "del": "^3.0.0",
+    "yeoman-generator": "^2.0.4"
+  }
+}
