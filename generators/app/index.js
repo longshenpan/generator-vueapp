@@ -117,7 +117,7 @@ module.exports = class extends Generator{
         log('end');
         // 结束时删除.yo-rc.json 
         if (fs.existsSync(this.destinationPath('.yo-rc.json'))) {
-            this.unlinkSync(this.destinationPath('.yo-rc.json'), function(err) {
+            fs.unlinkSync(this.destinationPath('.yo-rc.json'), function(err) {
                 if (err) {
                     throw err;
                 }
