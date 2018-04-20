@@ -115,6 +115,14 @@ module.exports = class extends Generator{
     }
     end() {
         log('end');
+        // 结束时删除.yo-rc.json 
+        if (fs.existsSync(this.destinationPath('.yo-rc.json'))) {
+            this.unlinkSync(this.destinationPath('.yo-rc.json'), function(err) {
+                if (err) {
+                    throw err;
+                }
+            });
+        }
         // 搭建完执行的操作
         /**
           * 删除一些多余的文件
