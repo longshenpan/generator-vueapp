@@ -13,7 +13,6 @@ export default {
 </script>
 
 <style>
-  @import url('./assets/style/reset.css');
   html, body{
     height: 100%;
   }
