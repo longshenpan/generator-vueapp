@@ -81,7 +81,9 @@ module.exports = class extends Generator{
         this.fs.copyTpl(this.sourceRoot(), 
             this.destinationPath(projectName),
             {
-                projectName: projectName
+                projectName: this.renderOpts.projectName,
+                projectVersion: this.renderOpts.projectVersion,
+                projectAuthor: this.renderOpts.projectAuthor
             });
         // let pagePath = projectName + '/pages/';
         // let compPath = projectName + '/components/';
