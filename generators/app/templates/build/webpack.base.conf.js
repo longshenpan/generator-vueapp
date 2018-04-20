@@ -25,6 +25,7 @@ module.exports = {
 	resolve: {
 		extensions: ['.js', '.vue', '.json'],
 		alias: {
+			'vue$': 'vue/dist/vue.esm.js',
 			'@': resolve('src'),
 			'assets': path.resolve(__dirname, '../src/assets')
 		}
@@ -40,6 +41,19 @@ module.exports = {
 			// css-loader是处理import @import引入的css文件和url()引入的文件等
 			// style-loader是将css文件通过style插入到html中	
 			// use: ['style-loader', 'css-loader']
+		}, {
+			test: /\.vue$/,
+			loader: 'vue-loader',
+			options: {
+				loaders: {
+				},
+				transformToRequire: {
+				  video: 'src',
+				  source: 'src',
+				  img: 'src',
+				  image: 'xlink:href'
+				}
+			}
 		}]
 	},
 	plugins: [
