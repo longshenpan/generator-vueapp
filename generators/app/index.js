@@ -13,11 +13,11 @@ module.exports = class extends Generator{
     constructor(args, opts) {
         // 默认会添加的构造函数
         super(args, opts);
-        log(args);
+        log('args',args);
         // 检查脚手架是否已经存在
         var dirs = glob.sync('+(src)');
         this.argument('projName', { type: String, required: true });
-        log(this.argument);
+        log('argument', this.argument);
         // this.log(this.options.appname);
         //now _.contains has been abandoned by lodash,use _.includes
         if(_.includes(dirs, 'src')){
@@ -49,7 +49,7 @@ module.exports = class extends Generator{
                 type: 'input',
                 name: 'projectName',
                 message: '输入项目名称',
-                default: this.projectname
+                default: this.projName
             },
             {
                 type: 'input',
