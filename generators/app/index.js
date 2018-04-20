@@ -12,11 +12,12 @@ var Generator = require('yeoman-generator'),
 module.exports = class extends Generator{
     constructor(args, opts) {
         // 默认会添加的构造函数
-        // generators.Base.apply(this, arguments);
         super(args, opts);
+        log(args);
         // 检查脚手架是否已经存在
         var dirs = glob.sync('+(src)');
-        this.argument('projectname', { type: String, required: true });
+        this.argument('projName', { type: String, required: true });
+        log(this.argument);
         // this.log(this.options.appname);
         //now _.contains has been abandoned by lodash,use _.includes
         if(_.includes(dirs, 'src')){
@@ -70,9 +71,6 @@ module.exports = class extends Generator{
             this.renderOpts = options;
             this.projectName = answers.projectName;
         });
-    }
-    model1() {
-        console.log('ee');
     }
     writing() {
         // log(this.renderOpts, this.destinationRoot(), this.sourceRoot(), this.templatePath('index.js'));
