@@ -16,7 +16,7 @@ module.exports = class extends Generator{
         super(args, opts);
         // 检查脚手架是否已经存在
         var dirs = glob.sync('+(src)');
-        // this.argument('appname', { type: String, required: true });
+        this.argument('projectname', { type: String, required: true });
         // this.log(this.options.appname);
         //now _.contains has been abandoned by lodash,use _.includes
         if(_.includes(dirs, 'src')){
@@ -48,14 +48,14 @@ module.exports = class extends Generator{
                 type: 'input',
                 name: 'projectName',
                 message: '输入项目名称',
-                default: this.appname
+                default: this.projectname
             },
             {
                 type: 'input',
                 name: 'projectAuthor',
                 message: '项目开发者',
                 store: true,   // 记住用户的选择
-                default: 'zhangpan'
+                default: ''
             },{
                 type: 'input',
                 name: 'projectVersion',
