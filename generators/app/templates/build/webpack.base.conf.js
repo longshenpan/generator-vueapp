@@ -8,6 +8,11 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 // 抽取css文件成单独的文件
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
+
+function resolve (dir) {
+  return path.join(__dirname, '..', dir)
+}
+
 module.exports = {
 	mode: 'development',
 	entry: {
@@ -16,6 +21,13 @@ module.exports = {
 	output: {
 		filename: '[name].[hash:8].js',
 		path: path.resolve(__dirname, 'dist')// 此处必须是绝对地址，否则会报错
+	},
+	resolve: {
+		extensions: ['.js', '.vue', '.json'],
+		alias: {
+			'@': resolve('src'),
+			'assets': path.resolve(__dirname, '../src/assets')
+		}
 	},
 	devtool: 'inline-source-map',//使用source-map
 	module: {
@@ -38,7 +50,7 @@ module.exports = {
 		new HtmlWebpackPlugin({template: './index.html'}),
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.DefinePlugin({
-			HOMEAPI: JSON.stringify('homeapi')
+			MOCKAPIHOST: JSON.stringify('http://localhost:8080/')
 		})
 	]
 }

@@ -7,6 +7,7 @@ const config = require('../build/webpack.base.conf.js');
 const opn = require('opn');// 打开浏览器插件
 const App = Express();
 const Compiler = Webpack(config);
+const router = require('../router/index.js');
 let devMiddleware = WebpackDevMiddleware(Compiler, {
 	lazy: false,
 	watchOptions: {
@@ -24,6 +25,7 @@ let hotMiddleware = WebpackHotMiddleware(Compiler, {
 App.use('/libs', Express.static(Path.join(process.cwd(), 'static')))
 	.use(devMiddleware)
 	.use(hotMiddleware);
+App.use('/', router);
 let uri = 'http://localhost:8080';
 devMiddleware.waitUntilValid(() => {
   	console.log('> Listening at ' + uri + '\n')
